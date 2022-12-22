@@ -18,7 +18,7 @@ Benchmark a bunch of tools that, given an `OpenAPI` produce a mock. Evaluate the
 | [mockoon](https://mockoon.com/cli/) | no* [1]                    | no                 | yes               | no                      | yes                  | no                     |
 |                                     |                            |                    |                   |                         |                      |                        |
 
-1. `mockoon` does allow to override endpoint providing its format, it does not allow overriding endpoint given a open-api ([details](https://mockoon.com/docs/latest/openapi/openapi-specification-compatibility/))
+1. It is possible to override an endpoint given a Mockoon's file format; it is not possible to override an endpoint given an `open-api` ([more details here](https://mockoon.com/docs/latest/openapi/openapi-specification-compatibility/)).
 
 ## Details
 
