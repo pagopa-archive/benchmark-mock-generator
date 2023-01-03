@@ -10,15 +10,17 @@ Benchmark a bunch of tools that, given an `OpenAPI` produce a mock. Evaluate the
 4. Let you write some assertions.
 5. Capable of recording network calls
 6. Capable of reproducing recorded calls.
+7. Require the knowledge of a particular language.
 
 ## Summary
 
-| Tool                                | Let you override endpoints | Let you keep state | Validate requests | Let you write assertion | Capable of recording | Capable of reproducing |
-|-------------------------------------|:--------------------------:|:------------------:|:-----------------:|:-----------------------:|:--------------------:|:----------------------:|
-| [mockoon](https://mockoon.com/cli/) | no* [1]                    | no                 | yes               | no                      | yes                  | no                     |
-|                                     |                            |                    |                   |                         |                      |                        |
+| Tool                                | Let you override endpoints | Let you keep state | Validate requests | Let you write assertion | Capable of recording | Capable of reproducing | Require the language |
+|-------------------------------------|:--------------------------:|:------------------:|:-----------------:|:-----------------------:|:--------------------:|:----------------------:|:--------------------:|
+| [mockoon](https://mockoon.com/cli/) | no* [1]                    | no                 | yes               | no                      | yes                  | no                     | custom* [2]          |
+|                                     |                            |                    |                   |                         |                      |                        |                      |
 
 1. It is possible to override an endpoint given a Mockoon's file format; it is not possible to override an endpoint given an `open-api` ([more details here](https://mockoon.com/docs/latest/openapi/openapi-specification-compatibility/)).
+2. Mockoon implements `Handlebars`, `Faker.js v5.5.3`, and a set of custom helpers to create dynamic responses. ([more details here](https://mockoon.com/docs/latest/templating/overview/)).
 
 ## Details
 
