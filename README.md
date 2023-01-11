@@ -8,19 +8,23 @@ Benchmark a bunch of tools that, given an `OpenAPI` produce a mock. Evaluate the
 2. Let you keep some state between successive API calls.
 3. Validate the request's payload.
 4. Let you write some assertions.
-5. Capable of recording network calls
+5. Capable of recording network calls.
 6. Capable of reproducing recorded calls.
 7. Require the knowledge of a particular language.
 
 ## Summary
 
-| Tool                                                                          | Let you override endpoints | Let you keep state | Validate requests | Let you write assertion | Capable of recording | Capable of reproducing | Require the language |
-|-------------------------------------------------------------------------------|:--------------------------:|:------------------:|:-----------------:|:-----------------------:|:--------------------:|:----------------------:|:--------------------:|
-| [mockoon](https://mockoon.com/cli/)                                           |          no* [1]           |         no         |        yes        |           no            |         yes          |           no           |     custom* [2]      |
-| [nebula open api gen](https://github.com/ProtocolNebula/ts-openapi-generator) |             no             |         no         |        no         |           no            |          no          |           no           |          no          |
+| Tool                                                                            | Let you override endpoints | Let you keep state | Validate requests | Let you write assertion | Capable of recording | Capable of reproducing | Require the language |
+|---------------------------------------------------------------------------------|:--------------------------:|:------------------:|:-----------------:|:-----------------------:|:--------------------:|:----------------------:|:--------------------:|
+| [mockoon](https://mockoon.com/cli/)                                             |          no* [1]           |         no         |        yes        |           no            |         yes          |           no           |     custom* [2]      |
+| [ts-openapi-generator](https://github.com/ProtocolNebula/ts-openapi-generator)  |          yes [3]           |      yes* [4]      |        no         |           no            |       yes* [5]       |           no           |     custom* [6]      |
 
 1. It is possible to override an endpoint given a Mockoon's file format; it is not possible to override an endpoint given an `open-api` ([more details here](https://mockoon.com/docs/latest/openapi/openapi-specification-compatibility/)).
 2. Mockoon implements `Handlebars`, `Faker.js v5.5.3`, and a set of custom helpers to create dynamic responses. ([more details here](https://mockoon.com/docs/latest/templating/overview/)).
+3. Yep, updating the `routes.json` file ([more details here](https://www.npmjs.com/package/json-server#add-custom-routes)).
+4. Not tested, but maybe it could. Documentation says it uses lowdb to store data.
+5. Not tested, but it could be possible writing a custom middleware ([more details here](https://www.npmjs.com/package/json-server#add-middlewares)).
+6. Endpoint's responses are retrieved from the `db.json` file generated. Another way is to generate data using JS ([more details here](https://www.npmjs.com/package/json-server#generate-random-data)).
 
 ## Details
 
@@ -56,6 +60,8 @@ Processing models from 'components'
     ERROR: ARRAY not supported on COMPONENTS SCHEMA
 ```
 so the mock-server doesn't serve all the routes (e.g. the `POST /delivery/requests` doesn't work).
+
+In general, a lot of customization described in the table above, ara available thanks to the `json-server` library.
 
 ##### Yaml vs JSON
 When generating models from OpenAPI, if we are using the `.yaml` file, we gets an error.
