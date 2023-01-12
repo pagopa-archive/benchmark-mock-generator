@@ -18,7 +18,7 @@ Benchmark a bunch of tools that, given an `OpenAPI` produce a mock. Evaluate the
 |--------------------------------------------------------------------------------|:--------------------------:|:------------------:|:-----------------:|:-----------------------:|:--------------------:|:----------------------:|:--------------------:|
 | [mockoon](https://mockoon.com/cli/)                                            | no* [1]                    | no                 | yes               | no                      | yes                  | no                     | custom* [2]          |
 | [ts-openapi-generator](https://github.com/ProtocolNebula/ts-openapi-generator) | yes [3]                    | yes* [4]           | no                | no                      | yes* [5]             | no                     | custom* [6]          |
-| [prism](https://stoplight.io/open-source/prism)                                | no                         | no* [7]            | yes               | no                      | no* [8]              | no                     | no                   |
+| [prism](https://stoplight.io/open-source/prism)                                | no* [9]                    | no* [7]            | yes               | no                      | no* [8]              | no                     | no                   |
 
 1. It is possible to override an endpoint given a Mockoon's file format; it is not possible to override an endpoint given an `open-api` ([more details here](https://mockoon.com/docs/latest/openapi/openapi-specification-compatibility/)).
 2. Mockoon implements `Handlebars`, `Faker.js v5.5.3`, and a set of custom helpers to create dynamic responses. ([more details here](https://mockoon.com/docs/latest/templating/overview/)).
@@ -28,6 +28,7 @@ Benchmark a bunch of tools that, given an `OpenAPI` produce a mock. Evaluate the
 6. Endpoint's responses are retrieved from the `db.json` file generated. Another way is to generate data using JS ([more details here](https://www.npmjs.com/package/json-server#generate-random-data)).
 7. Based on prism [roadmap](https://github.com/stoplightio/prism#-roadmap), at some point the data persistence feature will be available, allowing Prism to act like a sandbox, no ETA is provided.
 8. Based on prism [roadmap](https://github.com/stoplightio/prism#-roadmap), at some point the recording/learning mode feature will be available, no ETA is provided.
+9. [Prism](https://docs.stoplight.io/docs/prism/83dbbd75532cf-http-mocking#response-examples) allows you to override the return response through open-api examples.
 
 ## Details
 
