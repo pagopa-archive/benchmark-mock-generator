@@ -14,10 +14,11 @@ Benchmark a bunch of tools that, given an `OpenAPI` produce a mock. Evaluate the
 
 ## Summary
 
-| Tool                                                                            | Let you override endpoints | Let you keep state | Validate requests | Let you write assertion | Capable of recording | Capable of reproducing | Require the language |
-|---------------------------------------------------------------------------------|:--------------------------:|:------------------:|:-----------------:|:-----------------------:|:--------------------:|:----------------------:|:--------------------:|
-| [mockoon](https://mockoon.com/cli/)                                             |          no* [1]           |         no         |        yes        |           no            |         yes          |           no           |     custom* [2]      |
-| [ts-openapi-generator](https://github.com/ProtocolNebula/ts-openapi-generator)  |          yes [3]           |      yes* [4]      |        no         |           no            |       yes* [5]       |           no           |     custom* [6]      |
+| Tool                                                                           | Let you override endpoints | Let you keep state | Validate requests | Let you write assertion | Capable of recording | Capable of reproducing | Require the language |
+|--------------------------------------------------------------------------------|:--------------------------:|:------------------:|:-----------------:|:-----------------------:|:--------------------:|:----------------------:|:--------------------:|
+| [mockoon](https://mockoon.com/cli/)                                            | no* [1]                    | no                 | yes               | no                      | yes                  | no                     | custom* [2]          |
+| [ts-openapi-generator](https://github.com/ProtocolNebula/ts-openapi-generator) | yes [3]                    | yes* [4]           | no                | no                      | yes* [5]             | no                     | custom* [6]          |
+| [prism](https://stoplight.io/open-source/prism)                                | yes* [9]                   | no* [7]            | yes               | no                      | no* [8]              | no                     | no                   |
 
 1. It is possible to override an endpoint given a Mockoon's file format; it is not possible to override an endpoint given an `open-api` ([more details here](https://mockoon.com/docs/latest/openapi/openapi-specification-compatibility/)).
 2. Mockoon implements `Handlebars`, `Faker.js v5.5.3`, and a set of custom helpers to create dynamic responses. ([more details here](https://mockoon.com/docs/latest/templating/overview/)).
@@ -25,6 +26,9 @@ Benchmark a bunch of tools that, given an `OpenAPI` produce a mock. Evaluate the
 4. Not tested, but maybe it could. Documentation says it uses lowdb to store data.
 5. Not tested, but it could be possible writing a custom middleware ([more details here](https://www.npmjs.com/package/json-server#add-middlewares)).
 6. Endpoint's responses are retrieved from the `db.json` file generated. Another way is to generate data using JS ([more details here](https://www.npmjs.com/package/json-server#generate-random-data)).
+7. Based on prism [roadmap](https://github.com/stoplightio/prism#-roadmap), at some point the data persistence feature will be available, allowing Prism to act like a sandbox, no ETA is provided.
+8. Based on prism [roadmap](https://github.com/stoplightio/prism#-roadmap), at some point the recording/learning mode feature will be available, no ETA is provided.
+9. [Prism](https://docs.stoplight.io/docs/prism/83dbbd75532cf-http-mocking#response-examples) allows you to override the return response through open-api examples.
 
 ## Details
 
@@ -86,3 +90,10 @@ This second option is the simplest one, and it has been encoded in a script avai
 ##### Postinstall
 Postinstall script is required with this version [more details here](https://github.com/ProtocolNebula/ts-openapi-generator#installation-electric_plug)
 
+### Prism
+
+To run it execute the following command:
+
+``` sh
+npm run prism:start
+```
