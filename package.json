@@ -9,7 +9,10 @@
     "start": "npm run compile && node dist/main.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "mockoon:start": "mockoon-cli start --data docs/openapi/pn.yaml --daemon-off --log-transaction",
-    "prism:start": "prism mock -p 8080 -d docs/openapi/pn.yaml"
+    "prism:start": "prism mock -p 8080 -d docs/openapi/pn.yaml",
+    "nebula:postinstall": "cp -r ./node_modules/@protocolnebula/ts-openapi-generator/ApiBase ./generated",
+    "nebula:generate": "transform-swagger --config-file transform-swagger-config.json",
+    "nebula:start": "npm run nebula:postinstall && npm run nebula:generate && cd generated/mocks/json-server/middlewares && mv no-store.middleware.js ../ && cd .. && npm i && npm start"
   },
   "keywords": [],
   "author": "",
@@ -17,7 +20,7 @@
   "devDependencies": {
     "@mockoon/cli": "^2.2.1",
     "@stoplight/prism-cli": "^4.10.5",
+    "@protocolnebula/ts-openapi-generator": "^2.6.0",
     "typescript": "^4.9.4"
-  },
-  "dependencies": {}
+  }
 }
