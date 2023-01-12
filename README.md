@@ -18,7 +18,7 @@ Benchmark a bunch of tools that, given an `OpenAPI` produce a mock. Evaluate the
 |--------------------------------------------------------------------------------|:--------------------------:|:------------------:|:-----------------:|:-----------------------:|:--------------------:|:----------------------:|:--------------------:|
 | [mockoon](https://mockoon.com/cli/)                                            | no* [1]                    | no                 | yes               | no                      | yes                  | no                     | custom* [2]          |
 | [ts-openapi-generator](https://github.com/ProtocolNebula/ts-openapi-generator) | yes [3]                    | yes* [4]           | no                | no                      | yes* [5]             | no                     | custom* [6]          |
-| [prism](https://stoplight.io/open-source/prism)                                | no* [9]                    | no* [7]            | yes               | no                      | no* [8]              | no                     | no                   |
+| [prism](https://stoplight.io/open-source/prism)                                | yes* [9]                   | no* [7]            | yes               | no                      | no* [8]              | no                     | no                   |
 
 1. It is possible to override an endpoint given a Mockoon's file format; it is not possible to override an endpoint given an `open-api` ([more details here](https://mockoon.com/docs/latest/openapi/openapi-specification-compatibility/)).
 2. Mockoon implements `Handlebars`, `Faker.js v5.5.3`, and a set of custom helpers to create dynamic responses. ([more details here](https://mockoon.com/docs/latest/templating/overview/)).
