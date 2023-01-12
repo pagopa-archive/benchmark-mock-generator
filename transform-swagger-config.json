@@ -1,0 +1,8 @@
+{
+  "file": "./docs/openapi/pn.json",
+  "outputFolder": "./generated/pn",
+  "template": "angular2",
+  "mock-generator": "json-server",
+  "mock-output": "./generated/mocks/json-server",
+  "saveFile": "./generated/pn"
+}

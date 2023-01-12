@@ -8,13 +8,17 @@
     "compile": "tsc",
     "start": "npm run compile && node dist/main.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "mockoon:start": "mockoon-cli start --data docs/openapi/pn.yaml --daemon-off --log-transaction"
+    "mockoon:start": "mockoon-cli start --data docs/openapi/pn.yaml --daemon-off --log-transaction",
+    "nebula:postinstall": "cp -r ./node_modules/@protocolnebula/ts-openapi-generator/ApiBase ./generated",
+    "nebula:generate": "transform-swagger --config-file transform-swagger-config.json",
+    "nebula:start": "npm run nebula:postinstall && npm run nebula:generate && cd generated/mocks/json-server/middlewares && mv no-store.middleware.js ../ && cd .. && npm i && npm start"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@mockoon/cli": "^2.2.1",
+    "@protocolnebula/ts-openapi-generator": "^2.6.0",
     "typescript": "^4.9.4"
   }
 }
