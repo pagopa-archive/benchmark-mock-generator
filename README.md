@@ -16,9 +16,10 @@ Benchmark a bunch of tools that, given an `OpenAPI` produce a mock. Evaluate the
 
 | Tool                                                                           | Let you override endpoints | Let you keep state | Validate requests | Let you write assertion | Capable of recording | Capable of reproducing | Require the language |
 |--------------------------------------------------------------------------------|:--------------------------:|:------------------:|:-----------------:|:-----------------------:|:--------------------:|:----------------------:|:--------------------:|
-| [mockoon](https://mockoon.com/cli/)                                            | no* [1]                    | no                 | yes               | no                      | yes                  | no                     | custom* [2]          |
-| [ts-openapi-generator](https://github.com/ProtocolNebula/ts-openapi-generator) | yes [3]                    | yes* [4]           | no                | no                      | yes* [5]             | no                     | custom* [6]          |
-| [prism](https://stoplight.io/open-source/prism)                                | yes* [9]                   | no* [7]            | yes               | no                      | no* [8]              | no                     | no                   |
+| [mockoon](https://mockoon.com/cli/)                                            |          no* [1]           |         no         |        yes        |           no            |         yes          |           no           |     custom* [2]      |
+| [ts-openapi-generator](https://github.com/ProtocolNebula/ts-openapi-generator) |          yes [3]           |      yes* [4]      |        no         |           no            |       yes* [5]       |           no           |     custom* [6]      |
+| [prism](https://stoplight.io/open-source/prism)                                |          yes* [9]          |      no* [7]       |        yes        |           no            |       no* [8]        |           no           |          no          |
+| [open-api-mocker](https://github.com/jormaechea/open-api-mocker)               |         yes* [10]          |         no         |        yes        |           no            |          no          |           no           |     custom* [10]     |
 
 1. It is possible to override an endpoint given a Mockoon's file format; it is not possible to override an endpoint given an `open-api` ([more details here](https://mockoon.com/docs/latest/openapi/openapi-specification-compatibility/)).
 2. Mockoon implements `Handlebars`, `Faker.js v5.5.3`, and a set of custom helpers to create dynamic responses. ([more details here](https://mockoon.com/docs/latest/templating/overview/)).
@@ -29,6 +30,7 @@ Benchmark a bunch of tools that, given an `OpenAPI` produce a mock. Evaluate the
 7. Based on prism [roadmap](https://github.com/stoplightio/prism#-roadmap), at some point the data persistence feature will be available, allowing Prism to act like a sandbox, no ETA is provided.
 8. Based on prism [roadmap](https://github.com/stoplightio/prism#-roadmap), at some point the recording/learning mode feature will be available, no ETA is provided.
 9. [Prism](https://docs.stoplight.io/docs/prism/83dbbd75532cf-http-mocking#response-examples) allows you to override the return response through open-api examples.
+10. [Open-api-mocker](https://github.com/jormaechea/open-api-mocker#customizing-generated-responses) allows you to override the return response through adding `x-faker` to the OpenAPI.
 
 ## Details
 
@@ -97,3 +99,19 @@ To run it execute the following command:
 ``` sh
 npm run prism:start
 ```
+
+### open-api-mocker
+
+To run it execute the following command:
+
+``` sh
+npm run mocker:start
+```
+
+Note that the run command executes a shell script which downloads and runs the Docker image.
+As it is, the container will accept requests on port `8080`.
+
+#### Issues
+It has some issues when running directly using Node.js; using Docker it works fine.
+The Dockerfile runs an old version of Node: version 10.
+
