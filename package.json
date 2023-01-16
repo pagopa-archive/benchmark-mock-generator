@@ -22,7 +22,6 @@
     "@mockoon/cli": "^2.2.1",
     "@protocolnebula/ts-openapi-generator": "^2.6.0",
     "@stoplight/prism-cli": "^4.10.5",
-    "open-api-mocker": "^1.11.1",
     "typescript": "^4.9.4"
   }
 }
