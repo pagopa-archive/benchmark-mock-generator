@@ -1,0 +1,9 @@
+[
+    {
+        "preloadIdx": "${preload-request.preload:$[0].preloadIdx}",
+        "secret": "AZ23RF12",
+        "httpMethod": "PUT",
+        "url": "https://preloadpn.aws.amazon/custom",
+        "key": "this-is-a-custom-key"
+    }
+]

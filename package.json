@@ -12,7 +12,8 @@
     "prism:start": "prism mock -p 8080 -d docs/openapi/pn.yaml",
     "nebula:postinstall": "cp -r ./node_modules/@protocolnebula/ts-openapi-generator/ApiBase ./generated",
     "nebula:generate": "transform-swagger --config-file transform-swagger-config.json",
-    "nebula:start": "npm run nebula:postinstall && npm run nebula:generate && cd generated/mocks/json-server/middlewares && mv no-store.middleware.js ../ && cd .. && npm i && npm start"
+    "nebula:start": "npm run nebula:postinstall && npm run nebula:generate && cd generated/mocks/json-server/middlewares && mv no-store.middleware.js ../ && cd .. && npm i && npm start",
+    "imposter:start": "./scripts/imposter.sh"
   },
   "keywords": [],
   "author": "",
