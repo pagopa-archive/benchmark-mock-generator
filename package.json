@@ -13,6 +13,7 @@
     "nebula:postinstall": "cp -r ./node_modules/@protocolnebula/ts-openapi-generator/ApiBase ./generated",
     "nebula:generate": "transform-swagger --config-file transform-swagger-config.json",
     "nebula:start": "npm run nebula:postinstall && npm run nebula:generate && cd generated/mocks/json-server/middlewares && mv no-store.middleware.js ../ && cd .. && npm i && npm start",
+    "mocker:start": "./scripts/open-api-mocker.sh",
     "imposter:start": "./scripts/imposter.sh"
   },
   "keywords": [],
@@ -20,8 +21,8 @@
   "license": "ISC",
   "devDependencies": {
     "@mockoon/cli": "^2.2.1",
-    "@stoplight/prism-cli": "^4.10.5",
     "@protocolnebula/ts-openapi-generator": "^2.6.0",
+    "@stoplight/prism-cli": "^4.10.5",
     "typescript": "^4.9.4"
   }
 }
