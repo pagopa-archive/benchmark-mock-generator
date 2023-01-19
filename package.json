@@ -14,7 +14,8 @@
     "nebula:generate": "transform-swagger --config-file transform-swagger-config.json",
     "nebula:start": "npm run nebula:postinstall && npm run nebula:generate && cd generated/mocks/json-server/middlewares && mv no-store.middleware.js ../ && cd .. && npm i && npm start",
     "mocker:start": "./scripts/open-api-mocker.sh",
-    "imposter:start": "./scripts/imposter.sh"
+    "imposter:start": "./scripts/imposter.sh",
+    "specmatic:start": "./node_modules/specmatic/dist/bin/index.js stub --jsonLog=logs ./docs/openapi/employees.yaml"
   },
   "keywords": [],
   "author": "",
@@ -23,6 +24,7 @@
     "@mockoon/cli": "^2.2.1",
     "@protocolnebula/ts-openapi-generator": "^2.6.0",
     "@stoplight/prism-cli": "^4.10.5",
+    "specmatic": "^0.58.0",
     "typescript": "^4.9.4"
   }
 }
