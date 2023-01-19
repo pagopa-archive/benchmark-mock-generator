@@ -1,0 +1,17 @@
+plugin: openapi
+specFile: openapi/pn.yaml
+
+validation:
+  request: true
+
+resources:
+  - path: "/delivery/attachments/preload"
+    method: post
+    capture:
+      # store the whole request into preload-request key
+      preload:
+        jsonPath: $
+        store: preload-request
+    response:
+      template: true
+      file: imposter-preload-template.txt
