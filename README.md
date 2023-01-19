@@ -16,12 +16,12 @@ Benchmark a bunch of tools that, given an `OpenAPI` produce a mock. Evaluate the
 
 | Tool                                                                           | Let you override endpoints | Let you keep state | Validate requests | Let you write assertion | Capable of recording | Capable of reproducing | Require the language |
 |--------------------------------------------------------------------------------|:--------------------------:|:------------------:|:-----------------:|:-----------------------:|:--------------------:|:----------------------:|:--------------------:|
-| [mockoon](https://mockoon.com/cli/)                                            | no* [1]                    | no                 | yes               | no                      | yes                  | no                     | custom* [2]          |
-| [ts-openapi-generator](https://github.com/ProtocolNebula/ts-openapi-generator) | yes [3]                    | yes* [4]           | no                | no                      | yes* [5]             | no                     | custom* [6]          |
-| [prism](https://stoplight.io/open-source/prism)                                | yes* [9]                   | no* [7]            | yes               | no                      | no* [8]              | no                     | no                   |
-| [imposter](https://www.imposter.sh/)                                           | yes* [11]                  | yes* [12]          | yes* [10]         | no                      | no* [13]             | no                     | custom* [14]         |
+| [mockoon](https://mockoon.com/cli/)                                            |          no* [1]           | no                 |        yes        |           no            |         yes          |           no           | custom* [2]          |
+| [ts-openapi-generator](https://github.com/ProtocolNebula/ts-openapi-generator) |          yes [3]           | yes* [4]           |        no         |           no            |       yes* [5]       |           no           | custom* [6]          |
+| [prism](https://stoplight.io/open-source/prism)                                |          yes* [9]          | no* [7]            |        yes        |           no            |       no* [8]        |           no           | no                   |
+| [imposter](https://www.imposter.sh/)                                           |         yes* [11]          | yes* [12]          |     yes* [10]     |           no            |       no* [13]       |           no           | custom* [14]         |
 | [open-api-mocker](https://github.com/jormaechea/open-api-mocker)               |         yes* [15]          |         no         |        yes        |           no            |          no          |           no           |     custom* [15]     |
-|                                                                                |                            |                    |                   |                         |                      |                        |                      |
+| [specmatic](https://specmatic.in/documentation.html)                           |            yes             |                    |     yes [19]      |           no            |       yes [20]       |          yes           |                      |
 
 1. It is possible to override an endpoint given a Mockoon's file format; it is not possible to override an endpoint given an `open-api` ([more details here](https://mockoon.com/docs/latest/openapi/openapi-specification-compatibility/)).
 2. Mockoon implements `Handlebars`, `Faker.js v5.5.3`, and a set of custom helpers to create dynamic responses. ([more details here](https://mockoon.com/docs/latest/templating/overview/)).
@@ -38,6 +38,8 @@ Benchmark a bunch of tools that, given an `OpenAPI` produce a mock. Evaluate the
 13. Based on [documentation](https://docs.imposter.sh/metrics_logs_telemetry/#logs) it can log everything so somehow can be stored on a file.
 14. Based on [documentation](https://docs.imposter.sh/scripting/) imposter use a custom notation and accept different scripting language.
 15. [Open-api-mocker](https://github.com/jormaechea/open-api-mocker#customizing-generated-responses) allows you to override the return response through adding `x-faker` to the OpenAPI.
+19. More details [here](https://specmatic.in/Features.html#service-virtualisation).
+20. It could be possible using the logs.
 
 ## Details
 
