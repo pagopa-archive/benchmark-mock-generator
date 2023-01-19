@@ -14,7 +14,8 @@
     "nebula:generate": "transform-swagger --config-file transform-swagger-config.json",
     "nebula:start": "npm run nebula:postinstall && npm run nebula:generate && cd generated/mocks/json-server/middlewares && mv no-store.middleware.js ../ && cd .. && npm i && npm start",
     "mocker:start": "./scripts/open-api-mocker.sh",
-    "imposter:start": "./scripts/imposter.sh"
+    "imposter:start": "./scripts/imposter.sh",
+    "mockserver:start": "./scripts/mock-server.sh"
   },
   "keywords": [],
   "author": "",
