@@ -21,6 +21,7 @@ Benchmark a bunch of tools that, given an `OpenAPI` produce a mock. Evaluate the
 | [prism](https://stoplight.io/open-source/prism)                                |          yes* [9]          |      no* [7]       |        yes        |           no            |       no* [8]        |           no           |          no          |
 | [imposter](https://www.imposter.sh/)                                           |         yes* [11]          |     yes* [12]      |     yes* [10]     |           no            |       no* [13]       |           no           |     custom* [14]     |
 | [open-api-mocker](https://github.com/jormaechea/open-api-mocker)               |         yes* [15]          |         no         |        yes        |           no            |          no          |           no           |     custom* [15]     |
+| [mock-server](https://www.mock-server.com/)                                    |            yes             |         no         |        no         |        yes* [17]        |       yes [16]       |        no* [16]        |     custom* [18]     |
 | [specmatic](https://specmatic.in/documentation.html)                           |            yes             |      yes [19]      |     yes [20]      |        yes* [21]        |       yes [22]       |          yes           |     custom [23]      |
 
 1. It is possible to override an endpoint given a Mockoon's file format; it is not possible to override an endpoint given an `open-api` ([more details here](https://mockoon.com/docs/latest/openapi/openapi-specification-compatibility/)).
@@ -38,6 +39,9 @@ Benchmark a bunch of tools that, given an `OpenAPI` produce a mock. Evaluate the
 13. Based on [documentation](https://docs.imposter.sh/metrics_logs_telemetry/#logs) it can log everything so somehow can be stored on a file.
 14. Based on [documentation](https://docs.imposter.sh/scripting/) imposter use a custom notation and accept different scripting language.
 15. [Open-api-mocker](https://github.com/jormaechea/open-api-mocker#customizing-generated-responses) allows you to override the return response through adding `x-faker` to the OpenAPI.
+16. Based on [documentation](https://www.mock-server.com/proxy/record_and_replay.html) should be easy to reply the recorded requests.
+17. Based on [documentation](https://www.mock-server.com/mock_server/verification.html) we can write assertions but there is no way to check them.
+18. Support different languages (details [here](https://www.mock-server.com/mock_server/getting_started.html)), and different template engine (details [here](https://www.mock-server.com/mock_server/response_templates.html)).
 19. Based on [documentation](https://specmatic.in/documentation/authoring_contracts.html#from-an-existing-application-using-proxy-mode) it can use the proxy feature to persist requests and responses. 
 20. More details [here](https://specmatic.in/Features.html#service-virtualisation). 
 21. Maybe it is possible to use [custom assertions](https://specmatic.in/documentation/contract_tests.html#externalising-examples--test-cases). 
@@ -137,6 +141,23 @@ npm run imposter:start
 
 Visit `http://localhost:8080/_spec` to get the API specifications. Visit `http://localhost:8080/system/store/preload-request/preload` to lookup the key `preload` of the `perload-request` database.
 
+### Mock-Server
+
+To run it execute the following command:
+
+``` sh
+npm run mockserver:start
+```
+
+Visit `http://localhost:8080/mockserver/dashboard` to get the dashboard.
+
+Mock-server is really powerful, it provides internal [open-api](https://app.swaggerhub.com/apis/jamesdbloom/mock-server-openapi/5.15.x#/expectation/put_mockserver_openapi).
+
+To get the recorder request execute the following command:
+
+``` sh
+curl -v -X PUT "http://localhost:8080/mockserver/retrieve?type=REQUESTS"
+```
 ### Specmatic
 
 To run it execute the following command:

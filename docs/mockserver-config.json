@@ -1,0 +1,24 @@
+[
+  {
+    "specUrlOrPayload": "file:/config/openapi/pn.yaml"
+  },
+  {
+    "httpRequest": {
+      "method": "POST",
+      "path": "/delivery/attachments/preload"
+    },
+    "httpResponse": {
+        "statusCode": 200,
+        "body": [{
+            "key": "test"
+        }]
+    },
+    "times": {
+      "unlimited": true
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "priority": 10
+  }
+]
