@@ -22,7 +22,7 @@ Benchmark a bunch of tools that, given an `OpenAPI` produce a mock. Evaluate the
 | [imposter](https://www.imposter.sh/)                                           | yes* [11]                  | yes* [12]          | yes* [10]         | no                      | no* [13]             | no                     | custom* [14]         |
 | [open-api-mocker](https://github.com/jormaechea/open-api-mocker)               | yes* [15]                  | no                 | yes               | no                      | no                   | no                     | custom* [15]         |
 | [mock-server](https://www.mock-server.com/)                                    | yes                        | no                 | no                | yes* [17]               | yes [16]             | no* [16]               | custom* [18]         |
-| [specmatic](https://specmatic.in/documentation.html)                           | yes                        | yes [19]           | yes [20]          | yes* [21]               | yes [22]             | yes                    | custom [23]          |
+| [specmatic](https://specmatic.in/documentation.html)                           | yes                        | no                 | yes [19]          | no                      | yes [20]             | yes                    | custom [21]          |
 
 1. It is possible to override an endpoint given a Mockoon's file format; it is not possible to override an endpoint given an `open-api` ([more details here](https://mockoon.com/docs/latest/openapi/openapi-specification-compatibility/)).
 2. Mockoon implements `Handlebars`, `Faker.js v5.5.3`, and a set of custom helpers to create dynamic responses. ([more details here](https://mockoon.com/docs/latest/templating/overview/)).
@@ -42,11 +42,9 @@ Benchmark a bunch of tools that, given an `OpenAPI` produce a mock. Evaluate the
 16. Based on [documentation](https://www.mock-server.com/proxy/record_and_replay.html) should be easy to reply the recorded requests.
 17. Based on [documentation](https://www.mock-server.com/mock_server/verification.html) we can write assertions but there is no way to check them.
 18. Support different languages (details [here](https://www.mock-server.com/mock_server/getting_started.html)), and different template engine (details [here](https://www.mock-server.com/mock_server/response_templates.html)).
-19. Based on [documentation](https://specmatic.in/documentation/authoring_contracts.html#from-an-existing-application-using-proxy-mode) it can use the proxy feature to persist requests and responses. 
-20. More details [here](https://specmatic.in/Features.html#service-virtualisation). 
-21. Maybe it is possible to use [custom assertions](https://specmatic.in/documentation/contract_tests.html#externalising-examples--test-cases). 
-22. It could be possible using the logs. 
-23. It is possible to use Gherkin to write the assertions. More details [here](https://specmatic.in/documentation/contract_tests.html#externalising-examples--test-cases)
+19. More details [here](https://specmatic.in/Features.html#service-virtualisation). 
+20. It could be possible using the logs. 
+21. It is possible to use Gherkin to write the assertions. More details [here](https://specmatic.in/documentation/contract_tests.html#externalising-examples--test-cases)
 
 ## Details
 
