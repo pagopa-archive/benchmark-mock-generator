@@ -16,7 +16,8 @@
     "mocker:start": "./scripts/open-api-mocker.sh",
     "imposter:start": "./scripts/imposter.sh",
     "mockserver:start": "./scripts/mock-server.sh",
-    "specmatic:start": "./node_modules/specmatic/dist/bin/index.js stub --jsonLog=logs ./docs/openapi/employees.yaml"
+    "specmatic:start": "./node_modules/specmatic/dist/bin/index.js stub --jsonLog=logs ./docs/openapi/employees.yaml",
+    "wiremock:start": "./scripts/wiremock.sh"
   },
   "keywords": [],
   "author": "",
