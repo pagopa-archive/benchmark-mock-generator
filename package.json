@@ -8,7 +8,7 @@
     "compile": "tsc",
     "start": "npm run compile && node dist/main.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "mockoon:start": "mockoon-cli start --data docs/openapi/pn.yaml --daemon-off --log-transaction",
+    "mockoon:start": "mockoon-cli start --data docs/openapi/pn.yaml --daemon-off --log-transaction --port 8080",
     "prism:start": "prism mock -p 8080 -d docs/openapi/pn.yaml",
     "nebula:postinstall": "cp -r ./node_modules/@protocolnebula/ts-openapi-generator/ApiBase ./generated",
     "nebula:generate": "transform-swagger --config-file transform-swagger-config.json",
