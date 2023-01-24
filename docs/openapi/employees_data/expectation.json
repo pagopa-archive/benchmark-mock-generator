@@ -1,0 +1,15 @@
+{
+  "http-request": {
+    "method": "GET",
+    "path": "/znsio/specmatic/employees/666"
+  },
+  "http-response": {
+    "status": 200,
+    "body": {
+      "id": 666,
+      "name": "Custom name",
+      "department": "Custom dep",
+      "designation": "Custom des"
+    }
+  }
+}
