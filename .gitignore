@@ -248,3 +248,4 @@ dist
 generated/
 
 # End of https://www.toptal.com/developers/gitignore/api/emacs,visualstudiocode,macos,node
+wiremock/
