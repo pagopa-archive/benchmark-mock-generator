@@ -23,6 +23,7 @@ Benchmark a bunch of tools that, given an `OpenAPI` produce a mock. Evaluate the
 | [open-api-mocker](https://github.com/jormaechea/open-api-mocker)               |         yes* [15]          |         no         |        yes        |           no            |          no          |           no           |     custom* [15]     |
 | [mock-server](https://www.mock-server.com/)                                    |            yes             |         no         |        no         |        yes* [17]        |       yes [16]       |        no* [16]        |     custom* [18]     |
 | [specmatic](https://specmatic.in/documentation.html)                           |            yes             |      yes [19]      |     yes [20]      |        yes* [21]        |       yes [22]       |          yes           |     custom [23]      |
+| [wiremock](https://wiremock.org/)                                              |            yes             |         no         |        no         |           no            |       yes [24]       |           no           |     custom [25]      |
 
 1. It is possible to override an endpoint given a Mockoon's file format; it is not possible to override an endpoint given an `open-api` ([more details here](https://mockoon.com/docs/latest/openapi/openapi-specification-compatibility/)).
 2. Mockoon implements `Handlebars`, `Faker.js v5.5.3`, and a set of custom helpers to create dynamic responses. ([more details here](https://mockoon.com/docs/latest/templating/overview/)).
@@ -47,6 +48,8 @@ Benchmark a bunch of tools that, given an `OpenAPI` produce a mock. Evaluate the
 21. Maybe it is possible to use [custom assertions](https://specmatic.in/documentation/contract_tests.html#externalising-examples--test-cases). 
 22. It could be possible using the logs. 
 23. It is possible to use Gherkin to write the assertions. More details [here](https://specmatic.in/documentation/contract_tests.html#externalising-examples--test-cases)
+24. Details [here](https://docs.wiremock.io/docs/recording-stubs/).
+25. It uses Handlebars.
 
 ## Details
 
@@ -170,3 +173,18 @@ npm run specmatic:start
 It doesn't work with the `pn.yaml` file, because specmatic has some issues with the parsing of the file.
 In order to try the tool, there is the `employee.yaml` file, which is a very simple OpenAPI file.
 
+### Wiremock
+
+To run it execute the following command:
+
+``` sh
+npm run wiremock:start
+```
+#### Issues
+Wiremock has various tools we can use to stub, but none of them is complete.
+[Wiremock](https://wiremock.org/docs/) doesn't allow to load an OpenAPI, and the stubs are passed through a configuration
+or an external file (details [here](https://wiremock.org/docs/stubbing/)).
+[Wiremock studio](https://docs.wiremock.io/docs/getting-started/), instead, allows to load an OpenAPI file, but it's not simple to use without
+a GUI (nor is well documented to use in that way).
+
+We can take a look on how it implements some feature, but it's not a solution suited for our needs.
