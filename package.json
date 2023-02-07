@@ -3,6 +3,13 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "config": {
+    "openapi": {
+      "pn": "https://github.com/pagopa/pn-delivery/raw/e0b893a/docs/openapi/api-internal-b2b-pa-v1.yaml",
+      "io-api-auth": "https://github.com/pagopa/io-backend/raw/v9.10.0/openapi/generated/api_auth.yaml",
+      "io-sign-issuer": "https://github.com/pagopa/io-sign/raw/6a3d7b6/apps/io-func-sign-issuer/openapi.yaml"
+    }
+  },
   "scripts": {
     "clean": "tsc --build --clean",
     "compile": "tsc",
@@ -10,6 +17,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "mockoon:start": "mockoon-cli start --data docs/openapi/pn.yaml --daemon-off --log-transaction --port 8080",
     "prism:start": "prism mock -p 8080 -d docs/openapi/pn.yaml",
+    "prism:start:pn": "prism mock -p 8080 -d $npm_package_config_openapi_pn",
+    "prism:start:io-api-auth": "prism mock -p 8080 -d $npm_package_config_openapi_io_api_auth",
+    "prism:start:io-sign-issuer": "prism mock -p 8080 -d $npm_package_config_openapi_io_sign_issuer",
     "nebula:postinstall": "cp -r ./node_modules/@protocolnebula/ts-openapi-generator/ApiBase ./generated",
     "nebula:generate": "transform-swagger --config-file transform-swagger-config.json",
     "nebula:start": "npm run nebula:postinstall && npm run nebula:generate && cd generated/mocks/json-server/middlewares && mv no-store.middleware.js ../ && cd .. && npm i && npm start",
